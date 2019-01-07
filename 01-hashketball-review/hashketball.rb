@@ -1,3 +1,5 @@
+require 'pry'
+
 def game_hash
   {
     home: {
@@ -115,6 +117,29 @@ def game_hash
   }
 end
 
-def num_points_scored
-
+def get_all_players
+  # returns an array of all the players' hashes
+  return game_hash[:home][:players] + game_hash[:away][:players]
 end
+
+def get_player(player_name)
+  # returns stats for given player
+  get_all_players.each do |player_hash|
+    if player_hash[:player_name] == player_name
+      return player_hash
+    end
+  end
+end
+
+def num_points_scored(player_name)
+  # returns integer of points scored by named player
+  get_player(player_name)[:points]
+end
+
+def shoe_size(player_name)
+  # returns integer of shoe size of named player
+  get_player(player_name)[:shoe]
+end
+
+# binding.pry
+# puts 'hello mod1'
