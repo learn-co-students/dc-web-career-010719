@@ -1,4 +1,0 @@
-class Tweet
-
-
-end
