@@ -8,7 +8,7 @@ class User
     end
 
     def post_tweet(message)
-        tweet = Tweet.new(message, self)
+        Tweet.new(message, self)
     end
 
     def tweets
