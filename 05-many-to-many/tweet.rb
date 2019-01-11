@@ -2,19 +2,29 @@ class Tweet
 
     attr_reader :message, :user
 
-    @@all = []
+    @@all_tweets = []
 
     def initialize(message, user)
-        @message, @user = message, user
-        @@all << self
+        @message = message
+        @user = user # User object
+        @@all_tweets << self
+    end
+
+    def self.all
+        @@all_tweets
     end
 
     def username
         self.user.username
     end
 
-    def self.all
-        @@all
-    end
+    def likers
+        Favorite.all.select do |fave|
+            fave.tweet == self
+        end.collect do |fave|
+            fave.user 
+        end
 
+    end
 end
+
