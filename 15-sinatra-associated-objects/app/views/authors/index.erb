@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All the Authors</title>
+</head>
+<body>
+
+    <ul>
+    <% @authors.each do |author| %>
+        <li><a href="/authors/<%= author.id %>"><%= author.name %></a></li>
+    <% end %>
+    </ul>
+
+</body>
+</html>
