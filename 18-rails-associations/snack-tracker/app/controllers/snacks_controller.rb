@@ -1,6 +1,6 @@
 class SnacksController < ApplicationController
-  
-  before_action :find_snack, only: [:edit, :update, :show]
+
+  before_action :get_snack, only: [:show, :edit, :update]
 
   def index
     @snacks = Snack.all
@@ -9,25 +9,27 @@ class SnacksController < ApplicationController
   def show
   end
 
+  def heart
+    # delete all the snacks
+    # send an email to my mom
+    # recreate the Y2K bug
+    render :love
+  end
+
   def new
-    # get request to load empty form
     @snack = Snack.new
   end
 
   def create
-    # post request to make the snack from the form
-    # byebug
-    @snack = Snack.create(snack_strong_params)
-    redirect_to @snack
+    snack = Snack.create(snack_params)
+    redirect_to snack_path(snack)
   end
 
   def edit
-    # load edit form
   end
 
   def update
-    # update snack based on form
-    @snack.update(snack_strong_params)
+    @snack.update(snack_params)
     redirect_to @snack
   end
 
@@ -38,12 +40,12 @@ class SnacksController < ApplicationController
 
   private
 
-  def snack_strong_params
-    params.require(:snack).permit(
-        :name, :deliciousness, :calories, :retailer_id)
+  def snack_params
+    params.require(:snack).permit(:name, :deliciousness, :calories)
   end
 
-  def find_snack
+  def get_snack
     @snack = Snack.find(params[:id])
   end
+
 end

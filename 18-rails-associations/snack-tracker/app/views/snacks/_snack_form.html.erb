@@ -6,7 +6,7 @@
     <%= f.label :deliciousness %>
     <%= f.select :deliciousness, (1..10) %>
     <%= f.label :retailer %>
-    <%= f.collection_select(:retailer_id, Retailer.all, :id, :name, prompt: true) %>
-
-    <%= f.submit "Snackify" %>
+    <%= f.collection_select(:retailer_id, Retailer.all, :id, :name, {prompt: true}) %>
+    <%= f.submit %>
 <% end %>
+

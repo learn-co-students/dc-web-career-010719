@@ -9,12 +9,14 @@
 Snack.destroy_all
 Retailer.destroy_all
 
-retailers = Retailer.create([{name: "Hostess",
-                              year_established: 1929},
-                                {name: "Girl Scouts",
-                                    year_established: 1944}])
+h = Retailer.create(name: "Hostess", year_established: 1910)
 
-snacks = Snack.create([{name: "Thin Mints", calories: 200,
-                          deliciousness: 6, retailer_id: 1},
-                       {name: "Chicken fingers", calories: 650,
-                          deliciousness: 8, retailer_id: 2}])
+Snack.create(name: "Twinkies", calories: 400, deliciousness: 4, retailer: h)
+Snack.create(name: "Chicken Fingers", calories: 600, deliciousness: 6)
+Snack.create(name: "Coconut anything", calories: 600, deliciousness: 1)
+
+gs = Retailer.create(name: "Girl Scouts", year_established: 1905)
+
+Snack.create(name: "Tagalongs", calories: 500, deliciousness: 4, retailer: gs)
+
+gs.snacks.create(name: "Dosidos", calories: 400, deliciousness: 6)

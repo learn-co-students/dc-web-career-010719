@@ -1,23 +1,23 @@
-<h1>Build a new Retailer</h1>
+<h1>Make a new retailer</h1>
 
-<%= form_for @retailer do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :year_established %>
-    <%= f.number_field :year_established %>
+<%= form_for @retailer do |r| %>
+    <%= r.label :name %>
+    <%= r.text_field :name %>
+    <%= r.label :year_established %>
+    <%= r.number_field :year_established %>
 
-    <div>
-        <h3>Snacks</h3>
-        <%= f.fields_for :snacks do |snack| %>
+    <h2>Snacks by this retailer</h2>
+        <% 3.times do %>
             <div>
-                <%= snack.label :name, "Snack Name" %>
-                <%= snack.text_field :name %>
-                <%= snack.label :calories %>
-                <%= snack.number_field :calories %>
-                <%= snack.label :deliciousness %>
-                <%= snack.select :deliciousness, (1..10) %>
+                <%= r.fields_for :snacks do |snack| %>
+                    <%= snack.label :name %>
+                    <%= snack.text_field :name %>
+                    <%= snack.label :calories %>
+                    <%= snack.number_field :calories, step: 50 %>
+                    <%= snack.label :deliciousness %>
+                    <%= snack.select :deliciousness, (1..10) %>
+                <% end %>
             </div>
         <% end %>
-    </div>
-    <%= f.submit "Submit" %>
+    <%= r.submit %>
 <% end %>
