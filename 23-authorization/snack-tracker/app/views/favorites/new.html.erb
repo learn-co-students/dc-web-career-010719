@@ -1,0 +1,11 @@
+<h1>Choose Your Favorites</h1>
+
+<%= form_tag favorites_path do %>
+    <% Snack.all.each do |s| %>
+        <div>
+            <%= check_box_tag "snack_ids[]", s.id, current_user.snacks.include?(s) %>
+            <%= s.name %>
+        </div>
+    <% end %>
+    <%= submit_tag "Submit Favorites" %>
+<% end %>

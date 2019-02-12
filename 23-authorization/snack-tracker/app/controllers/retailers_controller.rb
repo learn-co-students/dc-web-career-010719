@@ -1,6 +1,7 @@
 class RetailersController < ApplicationController
 
-
+  before_action :authorized
+  
   def index
     @retailers = Retailer.all
   end
