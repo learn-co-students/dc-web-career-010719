@@ -1,0 +1,17 @@
+<h1>Detail page for <%= @snack.name %></h1>
+
+<% if @snack.retailer %>
+    <h2>Made by <%= link_to @snack.retailer.name, retailer_path(@snack.retailer) %></h2>
+<% else %>
+    <h2>Made by Secret Elves</h2>
+<% end %>
+
+<h3>Calories:  <%= @snack.calories %></h3>
+<h3>Deliciousness: <%= @snack.deliciousness %></h3>
+
+<%= form_tag @snack, method: "DELETE" do %>
+    <%= submit_tag "Delete this snack" %>
+<% end %>
+
+<%= link_to "Edit this snack", edit_snack_path(@snack) %>
+<%= link_to "Snacks Index Page", snacks_path %>
