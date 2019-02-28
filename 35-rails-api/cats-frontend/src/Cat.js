@@ -43,8 +43,13 @@ class Cat {
     console.log(this, e)
   }
 
-  //Will need to DELETE from cats table
+  //Will need to DELETE to cats table
   deleteCat(){
+
+  }
+
+  //Will need to PATCH to cats table
+  updateCat(){
 
   }
 }
