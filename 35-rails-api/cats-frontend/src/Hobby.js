@@ -1,13 +1,13 @@
 class Hobby {
-  constructor(id, description){
+  constructor(id, name){
     this.id = id
-    this.description = description
+    this.name = name
     Hobby.all.push(this)
   }
 
   render(){
     let li = document.createElement("li")
-    li.innerText = `${this.id} - ${this.description}`
+    li.innerText = `${this.id} - ${this.name}`
     return li
   }
 }

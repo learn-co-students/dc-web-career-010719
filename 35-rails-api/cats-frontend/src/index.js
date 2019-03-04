@@ -1,13 +1,29 @@
 document.addEventListener('DOMContentLoaded', init)
 
 function init(){
-  console.log('DOM loaded')
-  let cat1 = new Cat({id: 1, name: "Fluffy"})
-  let cat2 = new Cat({id: 2, name: "Meowzie"})
-  let cat3 = new Cat({id: 3, name: "Meowth"})
-  let cat4 = new Cat({id: 4, name: "Same"})
-  document.querySelector('#cats').appendChild(cat1.render())
-  document.querySelector('#cats').appendChild(cat2.render())
-  document.querySelector('#cats').appendChild(cat3.render())
-  document.querySelector('#cats').appendChild(cat4.render())
+  document.querySelector('form').addEventListener("submit", Cat.addCat)
+  getHobbies()
+  getCats()
+}
+
+function getHobbies(){
+  fetch('http://localhost:3000/hobbies')
+  .then(res => res.json())
+  .then(hobbiesArray => {
+    hobbiesArray.forEach(hobby => {
+      let hobbyInstance = new Hobby(hobby.id, hobby.name)
+      document.querySelector("#hobbies").appendChild(hobbyInstance.render())
+    })
+  })
+}
+
+function getCats(){
+  fetch('http://localhost:3000/cats')
+  .then(res => res.json())
+  .then(catsArray => {
+    catsArray.forEach(cat => {
+      let catInstance = new Cat(cat)
+      document.querySelector("#cats").appendChild(catInstance.render())
+    })
+  })
 }

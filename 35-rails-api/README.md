@@ -23,9 +23,7 @@
 
 ### CRUD
 
-### Rails Lab: Ignore the part about
-- `Last time out we created a PostSerializer and used it to serialize a Post to JSON.`
-- [This mistake](https://github.com/learn-co-curriculum/using-to-json-ruby)
 
 ### Transition to Project Mode
-[Setting Up Your Mod 3 Project](https://github.com/learn-co-curriculum/mod3-project-week-setup-example)
+- [Setting Up Your Mod 3 Project](https://github.com/learn-co-curriculum/mod3-project-week-setup-example)
+- Can't pitch your projects until you have your backend models drawn own and at least one wireframe
