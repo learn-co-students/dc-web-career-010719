@@ -1,0 +1,5 @@
+const BIGGER_COUNT = "BIGGER_COUNT"
+const LITTLER_COUNT = "LITTLER_COUNT"
+
+export {BIGGER_COUNT, LITTLER_COUNT}
+// export * from ...
