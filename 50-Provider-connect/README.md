@@ -38,7 +38,9 @@ js```npm install --save react-redux```
 
 ### Higher Order Components
 - a function that takes in a component and returns a new component (usually with additional props)
-js```
+
+js
+```
 const withCount = (SomeComponent) => {
   class WrappedComponent extends React.Component {
     render(){
